@@ -7,9 +7,9 @@
 <img src="/angular-logo.png" (click)="onLogoClick()">
 
 <div class="courses-panel flex flex-wrap gap-4 justify-center mt-10">
-  <app-course-card [course]="coreCourse"></app-course-card>
-  <app-course-card [course]="rxjsCourse"></app-course-card>
-  <app-course-card [course]="ngrxCourse"></app-course-card>
+  <app-course-card [course]="coreCourse" (courseSelected)="onCardClicked($event)"></app-course-card>
+  <app-course-card [course]="rxjsCourse" (courseSelected)="onCardClicked($event)"></app-course-card>
+  <app-course-card [course]="ngrxCourse" (courseSelected)="onCardClicked($event)"></app-course-card>
 </div>
 
 <router-outlet></router-outlet>

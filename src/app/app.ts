@@ -3,6 +3,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CourseCard } from './course-card/course-card';
 import { COURSES } from '../db-data';
+import { Course } from './models/course';
 
 @Component({
   selector: 'app-root',
@@ -25,4 +26,9 @@ export class App {
   coreCourse = COURSES[0];
   rxjsCourse = COURSES[1];
   ngrxCourse = COURSES[2];
+
+  // এই মেথডটি Child থেকে পাঠানো ডাটা রিসিভ করবে
+  onCardClicked(course: Course) {
+    console.log('Parent Component: Received event for course -', course.description);
+  }
 }
