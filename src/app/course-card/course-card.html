@@ -1,0 +1,15 @@
+<!-- src/app/course-card.html -->
+<div class="course-card bg-white shadow-lg shadow-black rounded-lg max-w-sm p-6 flex flex-col items-center">
+  <div class="course-title text-center text-2xl font-bold mb-6">
+    {{ course().description }}
+  </div>
+  <img class="block mx-auto w-64 h-auto mb-6" alt="Course Logo" [src]="course().iconUrl">
+
+  <div class="course-description text-center text-sm font-normal text-gray-700 px-4 mb-6">
+    {{ course().longDescription }}
+  </div>
+
+  <!-- <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition" (click)="onCourseViewed()">
+    View Course
+  </button> -->
+</div>

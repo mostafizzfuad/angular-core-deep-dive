@@ -1,0 +1,15 @@
+<!-- src/app/app.html -->
+<h1>Hello, {{ data().title }}</h1>
+<p>Congratulations! Your app is running. 🎉</p>
+
+<input class="demo" [value]="data().title" #titleInput (input)="onKeyUp(titleInput.value)">
+
+<img src="/angular-logo.png" (click)="onLogoClick()">
+
+<div class="courses-panel flex flex-wrap gap-4 justify-center mt-10">
+  <app-course-card [course]="coreCourse"></app-course-card>
+  <app-course-card [course]="rxjsCourse"></app-course-card>
+  <app-course-card [course]="ngrxCourse"></app-course-card>
+</div>
+
+<router-outlet></router-outlet>
