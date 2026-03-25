@@ -1,13 +1,14 @@
 <!-- src/app/app.html -->
 <div class="courses-panel flex flex-wrap gap-4 justify-center mt-10">
-  <app-course-card *ngFor="let course of courses; let i = index; let isFirst = first; let isLast = last; let isEven = even"
-    [course]="course"
-    [index]="i"
-    [isEven]="isEven"
-
-    [class.border-4]="isFirst"
-    [class.border-blue-500]="isFirst"
-    [class.border-6]="isLast"
-    [class.border-red-500]="isLast">
+  @for (
+  course of courses;
+  track course;
+  let i = $index;
+  let isFirst = $first;
+  let isLast = $last;
+  let isEven = $even
+  ) {
+  <app-course-card [course]="course" [index]="i">
   </app-course-card>
+  }
 </div>

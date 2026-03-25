@@ -1,6 +1,6 @@
 <!-- src/app/course-card.html -->
 <div class="course-card relative shadow-lg shadow-black rounded-lg max-w-sm p-6 flex flex-col items-center"
-  [class.bg-gray-200]="isEven()" [class.bg-white]="!isEven()">
+  *ngIf="course()">
   <div class="absolute top-4 right-4 bg-gray-200 text-gray-800 font-bold px-3 py-1 rounded-full text-sm">
     #{{ index() }}
   </div>
@@ -8,7 +8,35 @@
   <div class="course-title text-center text-2xl font-bold mb-6">
     {{ course().description }}
   </div>
+
+  <!-- @if (course().id === 1) {
+  <div class="bg-yellow-300 text-black font-bold px-4 py-2 rounded-lg mb-6">
+    ⭐ Course ID 1 Detected!
+  </div>
+  } @else if (course().iconUrl) {
   <img class="block mx-auto w-64 h-auto mb-6" alt="Course Logo" [src]="course().iconUrl">
+  } @else {
+  <div
+    class="mx-auto w-64 h-32 bg-gray-200 rounded-lg border-2 border-dashed border-gray-400 flex items-center justify-center mb-6 text-gray-500 font-bold">
+    📷 No Image
+  </div>
+  } -->
+
+  <div *ngIf="course().id === 1; else checkImage" class="bg-yellow-300 text-black font-bold px-4 py-2 rounded-lg mb-6">
+    ⭐ Course ID 1 Detected!
+  </div>
+
+  <ng-template #checkImage>
+    <img *ngIf="course().iconUrl; else noImage" class="block mx-auto w-64 h-auto mb-6" alt="Course Logo"
+      [src]="course().iconUrl">
+  </ng-template>
+
+  <ng-template #noImage>
+    <div
+      class="mx-auto w-64 h-32 bg-gray-200 rounded-lg border-2 border-dashed border-gray-400 flex items-center justify-center mb-6 text-gray-500 font-bold">
+      📷 No Image
+    </div>
+  </ng-template>
 
   <div class="course-description text-center text-sm font-normal text-gray-700 px-4 mb-6">
     {{ course().longDescription }}

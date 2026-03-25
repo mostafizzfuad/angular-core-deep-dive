@@ -1,10 +1,11 @@
 // src/app/course-card/course-card.ts
 import { Component, input } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { Course } from '../models/course';
 
 @Component({
   selector: 'app-course-card',
-  imports: [],
+  imports: [NgIf],
   templateUrl: './course-card.html',
   styleUrl: './course-card.css',
 })

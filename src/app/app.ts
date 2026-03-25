@@ -1,12 +1,11 @@
 // src/app/app.ts
 import { Component, signal } from '@angular/core';
-import { NgFor } from '@angular/common';
 import { CourseCard } from './course-card/course-card';
 import { COURSES } from '../db-data';
 
 @Component({
   selector: 'app-root',
-  imports: [CourseCard, NgFor],
+  imports: [CourseCard],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

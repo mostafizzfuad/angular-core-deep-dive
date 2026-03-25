@@ -1,7 +1,8 @@
 // src/db-data.ts
 import { Course } from './app/models/course';
 
-export const COURSES: Course[] = [
+export const COURSES: any = [
+  undefined, // 🚨 প্রথম আইটেমটি undefined বা মিসিং
   {
     id: 1,
     description: 'Angular Core Deep Dive',
@@ -15,8 +16,8 @@ export const COURSES: Course[] = [
   {
     id: 2,
     description: 'RxJs In Practice Course',
-    iconUrl:
-      'https://s3-us-west-1.amazonaws.com/angular-university/course-images/rxjs-in-practice-course.png',
+    iconUrl: '',
+    // iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/rxjs-in-practice-course.png',
     longDescription:
       'Understand the RxJs Observable pattern, learn the RxJs Operators via practical examples',
     category: 'BEGINNER',
