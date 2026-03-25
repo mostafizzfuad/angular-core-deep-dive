@@ -1,5 +1,5 @@
 // src/app/course-card/course-card.ts
-import { Component, input, output } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Course } from '../models/course';
 
 @Component({
@@ -9,23 +9,12 @@ import { Course } from '../models/course';
   styleUrl: './course-card.css',
 })
 export class CourseCard {
-  // ১. ডাটা রিসিভ করার ইনপুট (Parent থেকে আসা ডাটা)
+  // ডাটা রিসিভ করার ইনপুট (Parent থেকে আসা ডাটা)
   course = input.required<Course>();
 
-  // 🎯 নতুন ইনপুট: Parent থেকে index রিসিভ করার জন্য
-  index = input.required<number>(); // এটি একটি নাম্বার হবে
+  // Parent থেকে index রিসিভ করার জন্য
+  index = input.required<number>();
 
-  // 🎯 Parent থেকে isEven রিসিভ করার জন্য (ডিফল্ট false দিলাম)
+  // Parent থেকে isEven রিসিভ করার জন্য (ডিফল্ট false দিলাম)
   isEven = input<boolean>(false);
-
-  // ২. Custom Event বা আউটপুট তৈরি করছি (ট্রান্সমিটার)
-  courseSelected = output<Course>();
-
-  // ৩. বাটনে ক্লিক করলে এই মেথডটি রান করবে
-  onCourseViewed() {
-    console.log('Child Component: Button clicked!');
-
-    // ৪. Parent-এর কাছে ইভেন্ট এবং সাথে ডাটা (course object) পাঠিয়ে দিচ্ছি
-    this.courseSelected.emit(this.course());
-  }
 }

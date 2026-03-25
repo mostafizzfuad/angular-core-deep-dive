@@ -1,21 +1,13 @@
 <!-- src/app/app.html -->
-<h1>Hello, {{ data().title }}</h1>
-<p>Congratulations! Your app is running. 🎉</p>
-
-<input class="demo" [value]="data().title" #titleInput (input)="onKeyUp(titleInput.value)">
-
-<img src="/angular-logo.png" (click)="onLogoClick()">
-
 <div class="courses-panel flex flex-wrap gap-4 justify-center mt-10">
-  @for (course of courses; track trackCourse($index, course); let i = $index; let total = $count; let e = $even) {
-  <!-- <span>Total Courses: {{ total }}</span> -->
-  <app-course-card [course]="course" [index]="i" (courseSelected)="onCardClicked($event)" [class.border-4]="$first"
-    [class.border-blue-500]="$first" [class.border-6]="$last" [class.border-red-500]="$last" [isEven]="e" />
-  } @empty {
-  <div class="text-center text-red-500 font-bold text-2xl mt-10 w-full">
-    No courses found! 😢
-  </div>
-  }
-</div>
+  <app-course-card *ngFor="let course of courses; let i = index; let isFirst = first; let isLast = last; let isEven = even"
+    [course]="course"
+    [index]="i"
+    [isEven]="isEven"
 
-<router-outlet></router-outlet>
+    [class.border-4]="isFirst"
+    [class.border-blue-500]="isFirst"
+    [class.border-6]="isLast"
+    [class.border-red-500]="isLast">
+  </app-course-card>
+</div>
