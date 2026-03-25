@@ -1,5 +1,10 @@
 <!-- src/app/course-card.html -->
-<div class="course-card bg-white shadow-lg shadow-black rounded-lg max-w-sm p-6 flex flex-col items-center">
+<div class="course-card relative shadow-lg shadow-black rounded-lg max-w-sm p-6 flex flex-col items-center"
+  [class.bg-gray-200]="isEven()" [class.bg-white]="!isEven()">
+  <div class="absolute top-4 right-4 bg-gray-200 text-gray-800 font-bold px-3 py-1 rounded-full text-sm">
+    #{{ index() }}
+  </div>
+
   <div class="course-title text-center text-2xl font-bold mb-6">
     {{ course().description }}
   </div>

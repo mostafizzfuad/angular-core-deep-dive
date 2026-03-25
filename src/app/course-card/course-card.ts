@@ -12,6 +12,12 @@ export class CourseCard {
   // ১. ডাটা রিসিভ করার ইনপুট (Parent থেকে আসা ডাটা)
   course = input.required<Course>();
 
+  // 🎯 নতুন ইনপুট: Parent থেকে index রিসিভ করার জন্য
+  index = input.required<number>(); // এটি একটি নাম্বার হবে
+
+  // 🎯 Parent থেকে isEven রিসিভ করার জন্য (ডিফল্ট false দিলাম)
+  isEven = input<boolean>(false);
+
   // ২. Custom Event বা আউটপুট তৈরি করছি (ট্রান্সমিটার)
   courseSelected = output<Course>();
 

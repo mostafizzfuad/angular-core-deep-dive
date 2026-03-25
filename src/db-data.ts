@@ -1,5 +1,7 @@
 // src/db-data.ts
-export const COURSES: any = [
+import { Course } from './app/models/course';
+
+export const COURSES: Course[] = [
   {
     id: 1,
     description: 'Angular Core Deep Dive',

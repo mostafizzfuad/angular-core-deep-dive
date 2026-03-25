@@ -22,13 +22,16 @@ export class App {
     this.data.set({ title: newTitle });
   }
 
-  // db-data থেকে প্রথম ৩টি কোর্সের ডাটা ভেরিয়েবলে রাখছি
-  coreCourse = COURSES[0];
-  rxjsCourse = COURSES[1];
-  ngrxCourse = COURSES[2];
+  // এখন পুরো COURSES অ্যারেটিকে একটিমাত্র ভেরিয়েবলে রাখছি
+  courses = COURSES;
 
   // এই মেথডটি Child থেকে পাঠানো ডাটা রিসিভ করবে
   onCardClicked(course: Course) {
     console.log('Parent Component: Received event for course -', course.description);
+  }
+
+  trackCourse(index: number, course: Course): number {
+    // আমরা ইউনিক আইডেন্টিফায়ার হিসেবে id রিটার্ন করছি
+    return course.id;
   }
 }
